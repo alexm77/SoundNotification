@@ -1,0 +1,93 @@
+<resources>
+    <string name="title_activity_settings">Sound Notification Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_enable">Enable sound notifications</string>
+
+    <string name="pref_title_start">Start notifying after</string>
+    <string-array name="pref_start_list_titles">
+        <item>1 minute</item>
+        <item>2 minutes</item>
+        <item>3 minutes</item>
+        <item>4 minutes</item>
+        <item>5 minutes</item>
+        <item>10 minutes</item>
+        <item>15 minutes</item>
+    </string-array>
+    <string-array name="pref_start_list_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+    </string-array>
+
+    <string name="pref_title_increment">Increase notification interval</string>
+    <string-array name="pref_increment_list_titles">
+        <item>disabled</item>
+        <item>by 1 minutes</item>
+        <item>by 2 minutes</item>
+        <item>by 3 minutes</item>
+        <item>by 4 minutes</item>
+        <item>by 5 minutes</item>
+        <item>by 10 minutes</item>
+        <item>double interval</item>
+        <item>Fibonacci progression</item>
+    </string-array>
+    <string-array name="pref_increment_list_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>10</item>
+        <item>-1</item>
+        <item>-2</item>
+    </string-array>
+
+    <string name="pref_title_limit">Stop notifying</string>
+    <string-array name="pref_limit_list_titles">
+        <item>never</item>
+        <item>after 1 minute</item>
+        <item>after 5 minutes</item>
+        <item>after 15 minutes</item>
+        <item>after 30 minutes</item>
+        <item>after 1 hour</item>
+        <item>after 3 hours</item>
+        <item>after 6 hours</item>
+        <item>after 12 hours</item>
+        <item>after 1 day</item>
+        <item>after 3 notifications</item>
+        <item>after 10 notifications</item>
+        <item>after 25 notifications</item>
+        <item>after 50 notifications</item>
+        <item>after 100 notifications</item>
+    </string-array>
+    <string-array name="pref_limit_list_values">
+        <item>0</item>
+        <item>1</item>
+        <item>5</item>
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>720</item>
+        <item>1440</item>
+        <item>-3</item>
+        <item>-10</item>
+        <item>-25</item>
+        <item>-50</item>
+        <item>-100</item>
+    </string-array>
+
+    <string name="pref_vol_override">Override volume settings</string>
+    <string name="pref_vol_override_desc">If checked, notifications will beep at 80% of the max volume, ignoring volume settings</string>
+</resources>

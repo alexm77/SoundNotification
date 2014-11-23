@@ -1,0 +1,41 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="enable_checkbox"
+        android:title="@string/pref_title_enable"/>
+
+    <ListPreference
+        android:defaultValue="2"
+        android:entries="@array/pref_start_list_titles"
+        android:entryValues="@array/pref_start_list_values"
+        android:key="start_list"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="@string/pref_title_start"/>
+
+    <ListPreference
+        android:defaultValue="0"
+        android:entries="@array/pref_increment_list_titles"
+        android:entryValues="@array/pref_increment_list_values"
+        android:key="increment_list"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="@string/pref_title_increment"/>
+
+    <ListPreference
+        android:defaultValue="0"
+        android:entries="@array/pref_limit_list_titles"
+        android:entryValues="@array/pref_limit_list_values"
+        android:key="limit_list"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="@string/pref_title_limit"/>
+
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="vol_override"
+        android:title="@string/pref_vol_override"
+        android:summary="@string/pref_vol_override_desc"/>
+
+</PreferenceScreen>

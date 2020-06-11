@@ -1,9 +1,8 @@
 <resources>
     <string name="title_activity_settings">Sound Notification Settings</string>
-
+    <string name="notification_intent">unread_notification_intent</string>
     <!-- Strings related to Settings -->
 
-    <!-- Example General settings -->
     <string name="pref_header_general">General</string>
 
     <string name="pref_title_enable">Enable sound notifications</string>

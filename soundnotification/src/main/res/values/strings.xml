@@ -1,3 +1,22 @@
 <resources>
-    <string name="app_name">Sound Notification</string>
+    <string name="app_name">SoundNotification</string>
+    <string name="intent_name">org.bug.soundnotification.notification_intent</string>
+    <string name="delay_calculator">org.bug.soundnotification.delay_calculator</string>
+    <string name="current_notification">org.bug.soundnotification.current_notification</string>
+<!--    <string name="title_activity_settings2">Settings</string>-->
+
+<!--    &lt;!&ndash; Preference Titles &ndash;&gt;-->
+<!--    <string name="messages_header">Messages</string>-->
+<!--    <string name="sync_header">Sync</string>-->
+
+<!--    &lt;!&ndash; Messages Preferences &ndash;&gt;-->
+<!--    <string name="signature_title">Your signature</string>-->
+<!--    <string name="reply_title">Default reply action</string>-->
+
+<!--    &lt;!&ndash; Sync Preferences &ndash;&gt;-->
+<!--    <string name="sync_title">Sync email periodically</string>-->
+<!--    <string name="attachment_title">Download incoming attachments</string>-->
+<!--    <string name="attachment_summary_on">Automatically download attachments for incoming emails-->
+<!--    </string>-->
+<!--    <string name="attachment_summary_off">Only download attachments when manually requested</string>-->
 </resources>

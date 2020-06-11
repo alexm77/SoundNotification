@@ -4,7 +4,7 @@
     <!-- These settings headers are only used on tablets. -->
 
     <header
-        android:fragment="org.bug.soundnotification.SettingsActivity$GeneralPreferenceFragment"
+        android:fragment="org.bug.soundnotification.SettingsActivity$SettingsFragment"
         android:title="@string/pref_header_general"/>
 
 </preference-headers>

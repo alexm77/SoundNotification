@@ -12,7 +12,7 @@ import android.util.Log
 import androidx.preference.PreferenceManager
 
 
-class NotificationReceiver : BroadcastReceiver() {
+class JobReceiver : BroadcastReceiver() {
     override fun onReceive(ctx: Context, intent: Intent) {
         if (ctx.getString(R.string.intent_name) == intent.action) {
             val intentActiveId = intent.identifier
@@ -35,7 +35,7 @@ class NotificationReceiver : BroadcastReceiver() {
 
                 beep(ctx)
 
-                NotificationSender.sendNotification(ctx, calc, intentActiveId)
+                JobSender.sendJob(ctx, calc, intentActiveId)
             }
         }
     }
@@ -44,16 +44,17 @@ class NotificationReceiver : BroadcastReceiver() {
         private fun beep(ctx: Context) {
             val audioManager = ctx.getSystemService(Context.AUDIO_SERVICE) as AudioManager
             val maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_NOTIFICATION)
-            val overriddenVolume = (maxVolume * .8f).toInt()
+            val overriddenPref = PreferenceManager.getDefaultSharedPreferences(ctx).getInt("vol_override_level", 8)
+            val overriddenVolume = (.1f * overriddenPref * maxVolume).toInt()
 
             val prefs = PreferenceManager.getDefaultSharedPreferences(ctx)
             val volOverride = prefs.getBoolean(PREF_VOLUME_OVERRIDE, false)
-            Log.d(NotificationReceiver::class.java.name, "Beeping. Vol override=$volOverride")
+            Log.d(JobReceiver::class.java.name, "Beeping. Vol override=$volOverride")
             val originalVolume = audioManager.getStreamVolume(AudioManager.STREAM_NOTIFICATION)
 
             if (volOverride) {
                 Log.d(
-                    NotificationReceiver::class.java.name,
+                    JobReceiver::class.java.name,
                     "Original volume: $originalVolume, temp volume: $overriddenVolume"
                 )
                 audioManager.setStreamVolume(AudioManager.STREAM_NOTIFICATION, overriddenVolume, 0)
@@ -72,11 +73,11 @@ class NotificationReceiver : BroadcastReceiver() {
             val vib = ctx.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
             if (volume > 0) {
                 val convertedVolume = (volume / maxVolume.toFloat() * 100).toInt()
-                Log.d(NotificationReceiver::class.java.name, "Volume: $convertedVolume ($volume/$maxVolume)")
+                Log.d(JobReceiver::class.java.name, "Volume: $convertedVolume ($volume/$maxVolume)")
                 val toneGen = ToneGenerator(AudioManager.STREAM_NOTIFICATION, convertedVolume)
                 toneGen.startTone(ToneGenerator.TONE_CDMA_ALERT_CALL_GUARD, 200)
             } else if (volume < 0) {
-                Log.d(NotificationReceiver::class.java.name, "Vibrating")
+                Log.d(JobReceiver::class.java.name, "Vibrating")
                 vib.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE))
             }
         }

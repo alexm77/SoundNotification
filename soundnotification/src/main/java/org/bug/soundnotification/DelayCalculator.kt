@@ -1,6 +1,7 @@
 package org.bug.soundnotification
 
 import android.content.SharedPreferences
+import android.util.Log
 import java.io.Serializable
 import kotlin.math.abs
 
@@ -24,6 +25,7 @@ class DelayCalculator(prefs: SharedPreferences) : Serializable {
     }
 
     fun nextDelay(): Int {
+        Log.d(javaClass.name, "Calc: $this")
         var delay = next
         if (limit == 0 ||
             limit > 0 && totalDelays <= limit ||
@@ -44,10 +46,10 @@ class DelayCalculator(prefs: SharedPreferences) : Serializable {
             delay = 0
         }
 
+        Log.d(javaClass.name, "Returning $delay")
         return delay
     }
 
-    override fun toString(): String {
-        return "DelayCalculator(increment=$increment, limit=$limit, totalRepeats=$totalRepeats, totalDelays=$totalDelays, next=$next, previous=$previous)"
-    }
+    override fun toString() =
+        "DelayCalculator(increment=$increment, limit=$limit, totalRepeats=$totalRepeats, totalDelays=$totalDelays, next=$next, previous=$previous)"
 }

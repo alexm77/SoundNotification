@@ -16,15 +16,6 @@
 
     <ListPreference
         android:defaultValue="0"
-        android:entries="@array/pref_increment_list_titles"
-        android:entryValues="@array/pref_increment_list_values"
-        android:key="increment_list"
-        android:negativeButtonText="@null"
-        android:positiveButtonText="@null"
-        android:title="@string/pref_title_increment"/>
-
-    <ListPreference
-        android:defaultValue="0"
         android:entries="@array/pref_limit_list_titles"
         android:entryValues="@array/pref_limit_list_values"
         android:key="limit_list"
@@ -32,10 +23,26 @@
         android:positiveButtonText="@null"
         android:title="@string/pref_title_limit"/>
 
+    <ListPreference
+        android:defaultValue="0"
+        android:entries="@array/pref_increment_list_titles"
+        android:entryValues="@array/pref_increment_list_values"
+        android:key="increment_list"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="@string/pref_title_increment"/>
+
     <CheckBoxPreference
         android:defaultValue="false"
         android:key="vol_override"
         android:title="@string/pref_vol_override"
         android:summary="@string/pref_vol_override_desc"/>
+
+    <SeekBarPreference
+        android:defaultValue="8"
+        android:max="10"
+        android:key="vol_override_level"
+        android:title="@string/pref_vol_override_level"
+        android:summary="@string/pref_vol_override_level_desc"/>
 
 </PreferenceScreen>

@@ -1,8 +1,12 @@
 package org.bug.soundnotification
 
 import android.content.SharedPreferences
+import android.util.Log
+import io.mockk.every
+import io.mockk.mockkStatic
 import org.junit.jupiter.api.Assertions.assertArrayEquals
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
@@ -102,6 +106,16 @@ class DelayCalculatorTest {
                 Arguments.of(1, FIB, FIFTEEN_MINUTES, intArrayOf(1, 1, 2, 3, 5, 0, 0, 0, 0, 0))  //FibonacciTimeLimit
             )
         }
+
+        @BeforeAll
+        @JvmStatic
+        fun init() {
+            mockkStatic(Log::class)
+            every { Log.v(any(), any()) } returns 0
+            every { Log.d(any(), any()) } returns 0
+            every { Log.i(any(), any()) } returns 0
+            every { Log.e(any(), any()) } returns 0
+        }
     }
 
     private class TestPrefs(val initialDelay: Int, val increment: Int, val limit: Int): SharedPreferences {
@@ -118,12 +132,7 @@ class DelayCalculatorTest {
         }
 
         override fun getInt(key: String?, defValue: Int): Int {
-            when(key) {
-                "increment_list" -> return increment
-                "limit_list" -> return limit
-                "start_list" -> return initialDelay
-            }
-            return 0
+            TODO("Not yet implemented")
         }
 
         override fun getAll(): MutableMap<String, *> {
@@ -151,7 +160,12 @@ class DelayCalculatorTest {
         }
 
         override fun getString(key: String?, defValue: String?): String? {
-            TODO("Not yet implemented")
+            when(key) {
+                "increment_list" -> return increment.toString()
+                "limit_list" -> return limit.toString()
+                "start_list" -> return initialDelay.toString()
+            }
+            return ""
         }
 
     }

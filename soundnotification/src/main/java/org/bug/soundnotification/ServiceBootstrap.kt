@@ -17,7 +17,7 @@ class ServiceBootstrap : BroadcastReceiver() {
 
     companion object {
         fun startService(ctx: Context) {
-            val serviceIntent = Intent(ctx, NotificationService::class.java)
+            val serviceIntent = Intent(ctx, NotificationListener::class.java)
             ctx.startService(serviceIntent)
         }
     }

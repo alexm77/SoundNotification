@@ -51,7 +51,7 @@
         <item>-2</item>
     </string-array>
 
-    <string name="pref_title_limit">Stop notifying</string>
+    <string name="pref_title_limit">Stop notifying after</string>
     <string-array name="pref_limit_list_titles">
         <item>never</item>
         <item>after 1 minute</item>
@@ -89,4 +89,6 @@
 
     <string name="pref_vol_override">Override volume settings</string>
     <string name="pref_vol_override_desc">If checked, notifications will beep at 80% of the max volume, ignoring volume settings</string>
+    <string name="pref_vol_override_level">Overridden notification volume</string>
+    <string name="pref_vol_override_level_desc">Setting this to minimum will cause the notification to vibrate</string>
 </resources>
